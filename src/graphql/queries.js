@@ -1,9 +1,9 @@
 import { gql } from '@apollo/client';
 
 export const GET_REPOSITORIES = gql`
-  query GetRepositories {
+  query GetRepositories($first: Int, $after: String) {
     viewer {
-      repositories(first: 10, orderBy: { field: UPDATED_AT, direction: DESC }) {
+      repositories(first: $first, after: $after, orderBy: { field: UPDATED_AT, direction: DESC }) {
         nodes {
           id
           name
@@ -13,6 +13,10 @@ export const GET_REPOSITORIES = gql`
           owner {
             login
           }
+        }
+        pageInfo {
+          hasNextPage
+          endCursor
         }
       }
     }
