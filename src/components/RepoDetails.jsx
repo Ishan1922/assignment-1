@@ -1,7 +1,7 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_PULL_REQUESTS } from '../graphql/queries';
-import { Container, Typography, Card, CardContent, CircularProgress } from "@mui/material";
+import { Container, Typography, Card, CardContent, CircularProgress, Button } from "@mui/material";
 
 
 const RepoDetails = ({ repo, onBack }) => {
@@ -40,7 +40,7 @@ const RepoDetails = ({ repo, onBack }) => {
           </Card>
         ))
       )}
-      <button onClick={onBack} variant="contained" color="primary" fullWidth disabled={loading} style={{ marginTop: '10px', padding: '8px 16px', cursor: 'pointer' }}>Back</button>
+      <Button onClick={onBack} variant="contained" color="primary" disabled={loading} style={{ marginTop: '10px', padding: '8px 16px', cursor: 'pointer' }}>Back</Button>
     </Container>
   );
 };
